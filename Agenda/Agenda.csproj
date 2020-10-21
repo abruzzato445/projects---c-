@@ -78,6 +78,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Clients.cs" />
+    <Compile Include="Entities\Exeption\DomainExeption.cs" />
     <Compile Include="RegisterClient.cs">
       <SubType>Form</SubType>
     </Compile>
