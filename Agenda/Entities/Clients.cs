@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Windows.Forms;
 using Agenda.Entities.Exeption;
 using Npgsql;
@@ -11,7 +12,7 @@ namespace Agenda
         public string Name { get; private set; }
         public long Telefone { get; private set; }
         public string Observacao { get; private set; }
-        
+
         public Clients()
         {
         }
@@ -48,17 +49,20 @@ namespace Agenda
                 conn.Close();
             }
         }
+
         public void DeleteClient(string conextion)
         {
 
         }
+
         public void UpdateListClient(string conextion)
         {
 
         }
-        public void SelectClient(string conextion)
-        {
 
+        public void SelectClient(string connextion)
+        {
+         
         }
     }
 }
