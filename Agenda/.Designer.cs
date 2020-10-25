@@ -31,20 +31,22 @@
             this.button1 = new System.Windows.Forms.Button();
             this.tabAgenda = new System.Windows.Forms.TabControl();
             this.tabCadastro = new System.Windows.Forms.TabPage();
-            this.tabList = new System.Windows.Forms.TabPage();
+            this.ListClient = new System.Windows.Forms.ListBox();
             this.txtbox_observacao = new System.Windows.Forms.TextBox();
             this.txtbox_telefone = new System.Windows.Forms.TextBox();
             this.txtbox_name = new System.Windows.Forms.TextBox();
             this.titleObs = new System.Windows.Forms.Label();
             this.titleTel = new System.Windows.Forms.Label();
             this.titileName = new System.Windows.Forms.Label();
+            this.tabList = new System.Windows.Forms.TabPage();
+            this.bttn_Add = new System.Windows.Forms.Button();
             this.tabAgenda.SuspendLayout();
             this.tabCadastro.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(504, 418);
+            this.button1.Location = new System.Drawing.Point(477, 340);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(89, 29);
             this.button1.TabIndex = 6;
@@ -60,13 +62,16 @@
             this.tabAgenda.Name = "tabAgenda";
             this.tabAgenda.Padding = new System.Drawing.Point(10, 10);
             this.tabAgenda.SelectedIndex = 0;
-            this.tabAgenda.Size = new System.Drawing.Size(592, 408);
+            this.tabAgenda.Size = new System.Drawing.Size(592, 424);
             this.tabAgenda.TabIndex = 10;
             // 
             // tabCadastro
             // 
             this.tabCadastro.BackColor = System.Drawing.Color.Transparent;
+            this.tabCadastro.Controls.Add(this.bttn_Add);
+            this.tabCadastro.Controls.Add(this.ListClient);
             this.tabCadastro.Controls.Add(this.txtbox_observacao);
+            this.tabCadastro.Controls.Add(this.button1);
             this.tabCadastro.Controls.Add(this.txtbox_telefone);
             this.tabCadastro.Controls.Add(this.txtbox_name);
             this.tabCadastro.Controls.Add(this.titleObs);
@@ -76,20 +81,18 @@
             this.tabCadastro.Location = new System.Drawing.Point(4, 36);
             this.tabCadastro.Name = "tabCadastro";
             this.tabCadastro.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCadastro.Size = new System.Drawing.Size(584, 368);
+            this.tabCadastro.Size = new System.Drawing.Size(584, 384);
             this.tabCadastro.TabIndex = 0;
             this.tabCadastro.Text = "Cadastro de Clientes";
             // 
-            // tabList
+            // ListClient
             // 
-            this.tabList.BackColor = System.Drawing.Color.Transparent;
-            this.tabList.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabList.Location = new System.Drawing.Point(4, 36);
-            this.tabList.Name = "tabList";
-            this.tabList.Padding = new System.Windows.Forms.Padding(3);
-            this.tabList.Size = new System.Drawing.Size(573, 360);
-            this.tabList.TabIndex = 1;
-            this.tabList.Text = "Lista";
+            this.ListClient.FormattingEnabled = true;
+            this.ListClient.ItemHeight = 18;
+            this.ListClient.Location = new System.Drawing.Point(7, 211);
+            this.ListClient.Name = "ListClient";
+            this.ListClient.Size = new System.Drawing.Size(453, 112);
+            this.ListClient.TabIndex = 16;
             // 
             // txtbox_observacao
             // 
@@ -149,13 +152,33 @@
             this.titileName.TabIndex = 10;
             this.titileName.Text = "Nome";
             // 
+            // tabList
+            // 
+            this.tabList.BackColor = System.Drawing.Color.Transparent;
+            this.tabList.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabList.Location = new System.Drawing.Point(4, 36);
+            this.tabList.Name = "tabList";
+            this.tabList.Padding = new System.Windows.Forms.Padding(3);
+            this.tabList.Size = new System.Drawing.Size(584, 368);
+            this.tabList.TabIndex = 1;
+            this.tabList.Text = "Lista";
+            // 
+            // bttn_Add
+            // 
+            this.bttn_Add.Location = new System.Drawing.Point(477, 264);
+            this.bttn_Add.Name = "bttn_Add";
+            this.bttn_Add.Size = new System.Drawing.Size(89, 29);
+            this.bttn_Add.TabIndex = 17;
+            this.bttn_Add.Text = "Adicionar";
+            this.bttn_Add.UseVisualStyleBackColor = true;
+            this.bttn_Add.Click += new System.EventHandler(this.bttn_Add_Click);
+            // 
             // wMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 450);
             this.Controls.Add(this.tabAgenda);
-            this.Controls.Add(this.button1);
             this.MaximizeBox = false;
             this.Name = "wMain";
             this.Text = "Agenda";
@@ -177,6 +200,8 @@
         private System.Windows.Forms.Label titleObs;
         private System.Windows.Forms.Label titleTel;
         private System.Windows.Forms.Label titileName;
+        private System.Windows.Forms.ListBox ListClient;
+        private System.Windows.Forms.Button bttn_Add;
     }
 }
 

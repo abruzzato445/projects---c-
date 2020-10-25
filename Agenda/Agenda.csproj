@@ -79,17 +79,17 @@
   <ItemGroup>
     <Compile Include="Entities\Clients.cs" />
     <Compile Include="Entities\Exeption\DomainExeption.cs" />
-    <Compile Include="RegisterClient.cs">
+    <Compile Include="WindowMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include=".Designer.cs">
-      <DependentUpon>RegisterClient.cs</DependentUpon>
+      <DependentUpon>WindowMain.cs</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="RegisterClient.resx">
-      <DependentUpon>RegisterClient.cs</DependentUpon>
+    <EmbeddedResource Include="WindowMain.resx">
+      <DependentUpon>WindowMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -113,6 +113,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

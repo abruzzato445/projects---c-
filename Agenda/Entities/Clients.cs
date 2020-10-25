@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Data;
 using System.Windows.Forms;
 using Agenda.Entities.Exeption;
 using Npgsql;
@@ -19,10 +18,6 @@ namespace Agenda
 
         public Clients(string name, long telefone, string observacao)
         {
-            if (Name == null || Observacao == null && Telefone.ToString().Length < 11)
-
-                throw new DomainExeption("Register Error: Incomplete Data Filling. ");
-
             Name = name;
             Telefone = telefone;
             Observacao = observacao;
@@ -63,6 +58,11 @@ namespace Agenda
         public void SelectClient(string connextion)
         {
          
+        }
+
+        public override string ToString()
+        {
+            return "Nome: " + Name + " | " + Telefone + " | " + Observacao;
         }
     }
 }
