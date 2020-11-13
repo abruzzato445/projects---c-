@@ -1,6 +1,7 @@
-﻿using System;
+﻿using Agenda.Entities.Exeption;
+using System;
+using System.Data;
 using System.Windows.Forms;
-using Agenda.Entities.Exeption;
 using Npgsql;
 
 namespace Agenda
@@ -35,9 +36,9 @@ namespace Agenda
                 dbreader = command.ExecuteReader();
                 MessageBox.Show("Saved");
             }
-            catch (Exception ex)
+            catch (NpgsqlException e)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(e.Message);
             }
             finally
             {
@@ -45,19 +46,58 @@ namespace Agenda
             }
         }
 
-        public void DeleteClient(string conextion)
-        {
-
-        }
-
         public void UpdateListClient(string conextion)
         {
+            Query = "UPDATE public.clientes  SET nome =?, observacao =?, telefone =? WHERE<condition>; ";
 
         }
 
-        public void SelectClient(string connextion)
+        public void FilterClient(string connextion, string nameClient, DataGridView datagridview)
         {
-         
+                Query = $@"SELECT * FROM public.clientes WHERE nome = '{nameClient}';";
+                NpgsqlConnection conn = new NpgsqlConnection(connextion);
+                NpgsqlCommand command = new NpgsqlCommand(Query, conn);
+            try 
+            { 
+                conn.Open();
+                command.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                NpgsqlDataAdapter ndta = new NpgsqlDataAdapter(command);
+                ndta.Fill(dt);
+                datagridview.DataSource = dt;
+            }
+            catch(NpgsqlException e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public void SelectClient(string connextion, DataGridView dataGridView)
+        {
+            Query = @"SELECT * FROM public.clientes;";
+            NpgsqlConnection conn = new NpgsqlConnection(connextion);
+            NpgsqlCommand command = new NpgsqlCommand(Query, conn);
+            try
+            {
+                conn.Open();
+                command.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                NpgsqlDataAdapter ndta = new NpgsqlDataAdapter(command);
+                ndta.Fill(dt);
+                dataGridView.DataSource = dt;
+            }
+            catch(NpgsqlException e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
 
         public override string ToString()
