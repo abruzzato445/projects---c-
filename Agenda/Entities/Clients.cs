@@ -18,10 +18,18 @@ namespace Agenda
         {
         }
 
-        public Clients(string name, long telefone, string observacao)
+        public Clients(string name): this()
         {
             Name = name;
+        }
+
+        public Clients(string name, long telefone) : this(name)
+        {
             Telefone = telefone;
+        }
+
+        public Clients(string name, long telefone, string observacao) : this(name, telefone)
+        {
             Observacao = observacao;
         }
 
@@ -108,7 +116,7 @@ namespace Agenda
             NpgsqlCommand command = new NpgsqlCommand(Query, conn);
             try
             {
-                if (MessageBox.Show("Deseja excluir " + dataGridView.SelectedCells[0].Value.ToString()
+                if (MessageBox.Show("Deseja excluir o cliente " + dataGridView.SelectedCells[1].Value
                     + " ?", "System Info", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
                     conn.Open();
@@ -137,7 +145,14 @@ namespace Agenda
 
         public override string ToString()
         {
-            return "Nome: " + Name + " | Telefone: " + Telefone + " | Obs: " + Observacao;
+            if (Telefone == 0)
+            {
+                return "Nome: " + Name + " | Telefone: (00)00000-0000 | Obs: " + Observacao;
+            }
+            else
+            {
+                return "Nome: " + Name + " | Telefone: " + Telefone + " | Obs: " + Observacao;
+            }
         }
     }
 }

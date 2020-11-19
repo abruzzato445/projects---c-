@@ -29,9 +29,12 @@ namespace Agenda.Entities
                 conn.Open();
                 dtr = comm.ExecuteReader();
                 dtr.Read();
-                tBoxName.Text = dtr.GetString(0);
-                tBoxTel.Text = dtr.GetInt64(2).ToString();
-                tBoxObs.Text = dtr.GetString(1);
+                Nome = dtr.GetString(0);
+                Telefone = dtr.GetInt64(2);
+                Observacao = dtr.GetString(1);
+                tBoxName.Text = Nome;
+                tBoxTel.Text = Telefone.ToString();
+                tBoxObs.Text = Observacao;
             }
             catch(NpgsqlException e)
             {
@@ -71,8 +74,15 @@ namespace Agenda.Entities
 
         private void bttnSave_Click(object sender, EventArgs e)
         {
-            UpdateClient();
-            Close();
+            if (tBoxName.Text != Nome || tBoxTel.Text != Telefone.ToString() || tBoxObs.Text != Observacao)
+            {
+                UpdateClient();
+                Close();
+            }
+            else
+            {
+                Close();
+            }
         }
     }
 }

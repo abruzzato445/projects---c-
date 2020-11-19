@@ -158,7 +158,7 @@
             // txtbox_telefone
             // 
             this.txtbox_telefone.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtbox_telefone.Location = new System.Drawing.Point(435, 54);
+            this.txtbox_telefone.Location = new System.Drawing.Point(436, 53);
             this.txtbox_telefone.Name = "txtbox_telefone";
             this.txtbox_telefone.Size = new System.Drawing.Size(205, 22);
             this.txtbox_telefone.TabIndex = 14;
@@ -229,6 +229,7 @@
             this.bttnEdit.TabIndex = 5;
             this.bttnEdit.Text = "Vizualizar";
             this.bttnEdit.UseVisualStyleBackColor = true;
+            this.bttnEdit.Visible = false;
             this.bttnEdit.Click += new System.EventHandler(this.bttnEdit_Click);
             // 
             // bttnDelet
@@ -239,6 +240,7 @@
             this.bttnDelet.TabIndex = 4;
             this.bttnDelet.Text = "Excluir";
             this.bttnDelet.UseVisualStyleBackColor = true;
+            this.bttnDelet.Visible = false;
             this.bttnDelet.Click += new System.EventHandler(this.bttnDelet_Click);
             // 
             // bttnRefresh
@@ -286,6 +288,7 @@
             this.dgv_Clientes.ReadOnly = true;
             this.dgv_Clientes.Size = new System.Drawing.Size(643, 299);
             this.dgv_Clientes.TabIndex = 0;
+            this.dgv_Clientes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Clientes_CellClick);
             // 
             // id
             // 

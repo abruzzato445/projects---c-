@@ -70,19 +70,19 @@ namespace Agenda.Entities
             // 
             // tBoxName
             // 
-            this.tBoxName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tBoxName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tBoxName.Location = new System.Drawing.Point(50, 48);
             this.tBoxName.Name = "tBoxName";
-            this.tBoxName.Size = new System.Drawing.Size(231, 22);
+            this.tBoxName.Size = new System.Drawing.Size(231, 26);
             this.tBoxName.TabIndex = 3;
             this.tBoxName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tBoxTel
             // 
-            this.tBoxTel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tBoxTel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tBoxTel.Location = new System.Drawing.Point(68, 134);
             this.tBoxTel.Name = "tBoxTel";
-            this.tBoxTel.Size = new System.Drawing.Size(195, 22);
+            this.tBoxTel.Size = new System.Drawing.Size(195, 26);
             this.tBoxTel.TabIndex = 4;
             this.tBoxTel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
