@@ -285,6 +285,8 @@ namespace Agenda {
             
             private global::System.Data.DataColumn columntelefone;
             
+            private global::System.Data.DataColumn columnid;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public clientesDataTable() {
@@ -344,6 +346,14 @@ namespace Agenda {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn idColumn {
+                get {
+                    return this.columnid;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -384,7 +394,8 @@ namespace Agenda {
                 object[] columnValuesArray = new object[] {
                         nome,
                         observacao,
-                        telefone};
+                        telefone,
+                        null};
                 rowclientesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowclientesRow);
                 return rowclientesRow;
@@ -410,6 +421,7 @@ namespace Agenda {
                 this.columnnome = base.Columns["nome"];
                 this.columnobservacao = base.Columns["observacao"];
                 this.columntelefone = base.Columns["telefone"];
+                this.columnid = base.Columns["id"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -421,8 +433,14 @@ namespace Agenda {
                 base.Columns.Add(this.columnobservacao);
                 this.columntelefone = new global::System.Data.DataColumn("telefone", typeof(long), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntelefone);
+                this.columnid = new global::System.Data.DataColumn("id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid);
                 this.columnnome.MaxLength = 20;
                 this.columnobservacao.MaxLength = 100;
+                this.columnid.AutoIncrement = true;
+                this.columnid.AutoIncrementSeed = -1;
+                this.columnid.AutoIncrementStep = -1;
+                this.columnid.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -608,6 +626,17 @@ namespace Agenda {
                 }
                 set {
                     this[this.tableclientes.telefoneColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int id {
+                get {
+                    return ((int)(this[this.tableclientes.idColumn]));
+                }
+                set {
+                    this[this.tableclientes.idColumn] = value;
                 }
             }
             
@@ -810,6 +839,7 @@ namespace Agenda.dbDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("nome", "nome");
             tableMapping.ColumnMappings.Add("observacao", "observacao");
             tableMapping.ColumnMappings.Add("telefone", "telefone");
+            tableMapping.ColumnMappings.Add("id", "id");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.InsertCommand = new global::Npgsql.NpgsqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
@@ -852,7 +882,7 @@ namespace Agenda.dbDataSetTableAdapters {
             this._commandCollection = new global::Npgsql.NpgsqlCommand[1];
             this._commandCollection[0] = new global::Npgsql.NpgsqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT \"nome\", \"observacao\", \"telefone\" FROM \"public\".\"clientes\"";
+            this._commandCollection[0].CommandText = "SELECT nome, observacao, telefone, id FROM clientes";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

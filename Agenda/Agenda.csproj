@@ -112,6 +112,12 @@
     </Compile>
     <Compile Include="Entities\Clients.cs" />
     <Compile Include="Entities\Exception\DomainExeption.cs" />
+    <Compile Include="Entities\WindowEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Entities\WindowEdit.Designer.cs">
+      <DependentUpon>WindowEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="WindowMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +127,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Entities\WindowEdit.resx">
+      <DependentUpon>WindowEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WindowMain.resx">
       <DependentUpon>WindowMain.cs</DependentUpon>
     </EmbeddedResource>
