@@ -43,6 +43,7 @@
             this.titleTel = new System.Windows.Forms.Label();
             this.titileName = new System.Windows.Forms.Label();
             this.tabList = new System.Windows.Forms.TabPage();
+            this.cbxFilter = new System.Windows.Forms.ComboBox();
             this.bttnEdit = new System.Windows.Forms.Button();
             this.bttnDelet = new System.Windows.Forms.Button();
             this.bttnRefresh = new System.Windows.Forms.Button();
@@ -66,7 +67,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(585, 339);
+            this.button1.Location = new System.Drawing.Point(694, 395);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(89, 29);
             this.button1.TabIndex = 6;
@@ -78,16 +79,18 @@
             // 
             this.tabAgenda.Controls.Add(this.tabCadastro);
             this.tabAgenda.Controls.Add(this.tabList);
+            this.tabAgenda.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabAgenda.Location = new System.Drawing.Point(2, 3);
             this.tabAgenda.Name = "tabAgenda";
             this.tabAgenda.Padding = new System.Drawing.Point(10, 10);
             this.tabAgenda.SelectedIndex = 0;
-            this.tabAgenda.Size = new System.Drawing.Size(700, 426);
+            this.tabAgenda.Size = new System.Drawing.Size(832, 487);
             this.tabAgenda.TabIndex = 10;
             // 
             // tabCadastro
             // 
-            this.tabCadastro.BackColor = System.Drawing.Color.Transparent;
+            this.tabCadastro.BackColor = System.Drawing.Color.LightGray;
+            this.tabCadastro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.tabCadastro.Controls.Add(this.label1);
             this.tabCadastro.Controls.Add(this.button2);
             this.tabCadastro.Controls.Add(this.bttn_Add);
@@ -100,10 +103,10 @@
             this.tabCadastro.Controls.Add(this.titleTel);
             this.tabCadastro.Controls.Add(this.titileName);
             this.tabCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabCadastro.Location = new System.Drawing.Point(4, 36);
+            this.tabCadastro.Location = new System.Drawing.Point(4, 41);
             this.tabCadastro.Name = "tabCadastro";
             this.tabCadastro.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCadastro.Size = new System.Drawing.Size(692, 386);
+            this.tabCadastro.Size = new System.Drawing.Size(824, 442);
             this.tabCadastro.TabIndex = 0;
             this.tabCadastro.Text = "Cadastro de Clientes";
             // 
@@ -111,7 +114,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(191, 213);
+            this.label1.Location = new System.Drawing.Point(300, 269);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(188, 22);
             this.label1.TabIndex = 19;
@@ -119,7 +122,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(585, 284);
+            this.button2.Location = new System.Drawing.Point(694, 343);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(89, 29);
             this.button2.TabIndex = 18;
@@ -129,7 +132,7 @@
             // 
             // bttn_Add
             // 
-            this.bttn_Add.Location = new System.Drawing.Point(585, 148);
+            this.bttn_Add.Location = new System.Drawing.Point(362, 221);
             this.bttn_Add.Name = "bttn_Add";
             this.bttn_Add.Size = new System.Drawing.Size(89, 29);
             this.bttn_Add.TabIndex = 17;
@@ -141,7 +144,7 @@
             // 
             this.ListClient.FormattingEnabled = true;
             this.ListClient.ItemHeight = 18;
-            this.ListClient.Location = new System.Drawing.Point(6, 238);
+            this.ListClient.Location = new System.Drawing.Point(115, 294);
             this.ListClient.Name = "ListClient";
             this.ListClient.Size = new System.Drawing.Size(559, 130);
             this.ListClient.TabIndex = 16;
@@ -149,7 +152,7 @@
             // txtbox_observacao
             // 
             this.txtbox_observacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtbox_observacao.Location = new System.Drawing.Point(6, 126);
+            this.txtbox_observacao.Location = new System.Drawing.Point(115, 128);
             this.txtbox_observacao.Multiline = true;
             this.txtbox_observacao.Name = "txtbox_observacao";
             this.txtbox_observacao.Size = new System.Drawing.Size(559, 67);
@@ -158,7 +161,7 @@
             // txtbox_telefone
             // 
             this.txtbox_telefone.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtbox_telefone.Location = new System.Drawing.Point(436, 53);
+            this.txtbox_telefone.Location = new System.Drawing.Point(565, 54);
             this.txtbox_telefone.Name = "txtbox_telefone";
             this.txtbox_telefone.Size = new System.Drawing.Size(205, 22);
             this.txtbox_telefone.TabIndex = 14;
@@ -178,7 +181,7 @@
             // 
             this.titleObs.AutoSize = true;
             this.titleObs.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titleObs.Location = new System.Drawing.Point(229, 101);
+            this.titleObs.Location = new System.Drawing.Point(338, 103);
             this.titleObs.Name = "titleObs";
             this.titleObs.Size = new System.Drawing.Size(113, 22);
             this.titleObs.TabIndex = 12;
@@ -188,7 +191,7 @@
             // 
             this.titleTel.AutoSize = true;
             this.titleTel.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titleTel.Location = new System.Drawing.Point(502, 28);
+            this.titleTel.Location = new System.Drawing.Point(631, 29);
             this.titleTel.Name = "titleTel";
             this.titleTel.Size = new System.Drawing.Size(84, 22);
             this.titleTel.TabIndex = 11;
@@ -206,7 +209,8 @@
             // 
             // tabList
             // 
-            this.tabList.BackColor = System.Drawing.Color.Transparent;
+            this.tabList.BackColor = System.Drawing.Color.LightGray;
+            this.tabList.Controls.Add(this.cbxFilter);
             this.tabList.Controls.Add(this.bttnEdit);
             this.tabList.Controls.Add(this.bttnDelet);
             this.tabList.Controls.Add(this.bttnRefresh);
@@ -214,16 +218,27 @@
             this.tabList.Controls.Add(this.tBoxFilterClient);
             this.tabList.Controls.Add(this.dgv_Clientes);
             this.tabList.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabList.Location = new System.Drawing.Point(4, 36);
+            this.tabList.Location = new System.Drawing.Point(4, 41);
             this.tabList.Name = "tabList";
             this.tabList.Padding = new System.Windows.Forms.Padding(3);
-            this.tabList.Size = new System.Drawing.Size(692, 386);
+            this.tabList.Size = new System.Drawing.Size(824, 442);
             this.tabList.TabIndex = 1;
             this.tabList.Text = "Lista de Clientes";
             // 
+            // cbxFilter
+            // 
+            this.cbxFilter.FormattingEnabled = true;
+            this.cbxFilter.Items.AddRange(new object[] {
+            "Cliente",
+            "Telefone"});
+            this.cbxFilter.Location = new System.Drawing.Point(197, 16);
+            this.cbxFilter.Name = "cbxFilter";
+            this.cbxFilter.Size = new System.Drawing.Size(121, 26);
+            this.cbxFilter.TabIndex = 6;
+            // 
             // bttnEdit
             // 
-            this.bttnEdit.Location = new System.Drawing.Point(578, 355);
+            this.bttnEdit.Location = new System.Drawing.Point(706, 411);
             this.bttnEdit.Name = "bttnEdit";
             this.bttnEdit.Size = new System.Drawing.Size(87, 28);
             this.bttnEdit.TabIndex = 5;
@@ -234,7 +249,7 @@
             // 
             // bttnDelet
             // 
-            this.bttnDelet.Location = new System.Drawing.Point(475, 355);
+            this.bttnDelet.Location = new System.Drawing.Point(589, 411);
             this.bttnDelet.Name = "bttnDelet";
             this.bttnDelet.Size = new System.Drawing.Size(87, 28);
             this.bttnDelet.TabIndex = 4;
@@ -245,7 +260,7 @@
             // 
             // bttnRefresh
             // 
-            this.bttnRefresh.Location = new System.Drawing.Point(498, 20);
+            this.bttnRefresh.Location = new System.Drawing.Point(687, 14);
             this.bttnRefresh.Name = "bttnRefresh";
             this.bttnRefresh.Size = new System.Drawing.Size(87, 28);
             this.bttnRefresh.TabIndex = 3;
@@ -257,15 +272,15 @@
             // 
             this.lblab2t1.AutoSize = true;
             this.lblab2t1.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblab2t1.Location = new System.Drawing.Point(131, 22);
+            this.lblab2t1.Location = new System.Drawing.Point(96, 17);
             this.lblab2t1.Name = "lblab2t1";
-            this.lblab2t1.Size = new System.Drawing.Size(69, 22);
+            this.lblab2t1.Size = new System.Drawing.Size(95, 22);
             this.lblab2t1.TabIndex = 2;
-            this.lblab2t1.Text = "Cliente";
+            this.lblab2t1.Text = "Filtrar por:";
             // 
             // tBoxFilterClient
             // 
-            this.tBoxFilterClient.Location = new System.Drawing.Point(206, 22);
+            this.tBoxFilterClient.Location = new System.Drawing.Point(389, 17);
             this.tBoxFilterClient.Name = "tBoxFilterClient";
             this.tBoxFilterClient.Size = new System.Drawing.Size(277, 24);
             this.tBoxFilterClient.TabIndex = 1;
@@ -283,10 +298,10 @@
             this.telefoneDataGridViewTextBoxColumn,
             this.observacaoDataGridViewTextBoxColumn});
             this.dgv_Clientes.DataSource = this.clientesBindingSource;
-            this.dgv_Clientes.Location = new System.Drawing.Point(22, 52);
+            this.dgv_Clientes.Location = new System.Drawing.Point(23, 51);
             this.dgv_Clientes.Name = "dgv_Clientes";
             this.dgv_Clientes.ReadOnly = true;
-            this.dgv_Clientes.Size = new System.Drawing.Size(643, 299);
+            this.dgv_Clientes.Size = new System.Drawing.Size(779, 354);
             this.dgv_Clientes.TabIndex = 0;
             this.dgv_Clientes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Clientes_CellClick);
             // 
@@ -321,7 +336,7 @@
             this.observacaoDataGridViewTextBoxColumn.HeaderText = "OBSERVAÇÃO";
             this.observacaoDataGridViewTextBoxColumn.Name = "observacaoDataGridViewTextBoxColumn";
             this.observacaoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.observacaoDataGridViewTextBoxColumn.Width = 300;
+            this.observacaoDataGridViewTextBoxColumn.Width = 435;
             // 
             // clientesBindingSource
             // 
@@ -341,10 +356,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(703, 436);
+            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.ClientSize = new System.Drawing.Size(831, 491);
             this.Controls.Add(this.tabAgenda);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "wMain";
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Agenda";
             this.Load += new System.EventHandler(this.wMain_Load);
             this.tabAgenda.ResumeLayout(false);
@@ -383,6 +402,7 @@
         private System.Windows.Forms.Button bttnRefresh;
         private System.Windows.Forms.Button bttnEdit;
         private System.Windows.Forms.Button bttnDelet;
+        private System.Windows.Forms.ComboBox cbxFilter;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn nomeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn telefoneDataGridViewTextBoxColumn;

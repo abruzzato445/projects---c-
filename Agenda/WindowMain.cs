@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using Agenda.Entities;
+using Agenda.Entities.Exeption;
 
 namespace Agenda
 {
@@ -22,18 +23,29 @@ namespace Agenda
 
         private void bttn_Add_Click(object sender, EventArgs e)
         {
-            if (txtbox_telefone.TextLength == 0)
-            {
-                long telefone = 0;
-                Clients client = new Clients(txtbox_name.Text, telefone, txtbox_observacao.Text);
-                ListClient.Items.Add(client);
-                clearCamps();
+            try
+            { 
+                if (txtbox_name.Text == "")
+                {
+                    throw new DomainExeption(" Não foi inserido o nome do cliente. Essa coluna é obrigatória!");
+                }
+                else if (txtbox_telefone.Text.Length == 0)
+                {
+                    long telefone = 0;
+                    Clients client = new Clients(txtbox_name.Text, telefone, txtbox_observacao.Text);
+                    ListClient.Items.Add(client);
+                    clearCamps();
+                }
+                else
+                {
+                    Clients client = new Clients(txtbox_name.Text, Convert.ToInt64(txtbox_telefone.Text), txtbox_observacao.Text);
+                    ListClient.Items.Add(client);
+                    clearCamps();
+                }
             }
-            else
+            catch(DomainExeption s)
             {
-                Clients client = new Clients(txtbox_name.Text, Convert.ToInt64(txtbox_telefone.Text), txtbox_observacao.Text);
-                ListClient.Items.Add(client);
-                clearCamps();
+                MessageBox.Show(s.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -63,7 +75,21 @@ namespace Agenda
         private void filterClient()
         {
             Clients clients = new Clients();
-            clients.FilterClient(clients.connextion, tBoxFilterClient.Text, dgv_Clientes);
+            if (cbxFilter.SelectedIndex == 0)
+            {
+                clients.FilterClient(clients.connextion, tBoxFilterClient.Text, dgv_Clientes);
+            }
+            else
+            {
+                if (tBoxFilterClient.Text.Length == 0)
+                {
+                    clients.SelectClient(clients.connextion, dgv_Clientes);
+                }
+                else
+                {
+                    clients.FilterforTel(clients.connextion, Convert.ToInt64(tBoxFilterClient.Text), dgv_Clientes);
+                }
+            }
         }
 
         private void tBoxFilterClient_TextChanged(object sender, EventArgs e)

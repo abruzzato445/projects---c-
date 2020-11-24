@@ -42,7 +42,7 @@ namespace Agenda.Entities
             // 
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(137, 16);
+            this.lblName.Location = new System.Drawing.Point(161, 23);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(60, 20);
             this.lblName.TabIndex = 0;
@@ -52,7 +52,7 @@ namespace Agenda.Entities
             // 
             this.lblTel.AutoSize = true;
             this.lblTel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTel.Location = new System.Drawing.Point(119, 99);
+            this.lblTel.Location = new System.Drawing.Point(143, 113);
             this.lblTel.Name = "lblTel";
             this.lblTel.Size = new System.Drawing.Size(101, 20);
             this.lblTel.TabIndex = 1;
@@ -62,7 +62,7 @@ namespace Agenda.Entities
             // 
             this.lblObs.AutoSize = true;
             this.lblObs.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblObs.Location = new System.Drawing.Point(104, 183);
+            this.lblObs.Location = new System.Drawing.Point(128, 205);
             this.lblObs.Name = "lblObs";
             this.lblObs.Size = new System.Drawing.Size(132, 20);
             this.lblObs.TabIndex = 2;
@@ -71,16 +71,16 @@ namespace Agenda.Entities
             // tBoxName
             // 
             this.tBoxName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tBoxName.Location = new System.Drawing.Point(50, 48);
+            this.tBoxName.Location = new System.Drawing.Point(38, 55);
             this.tBoxName.Name = "tBoxName";
-            this.tBoxName.Size = new System.Drawing.Size(231, 26);
+            this.tBoxName.Size = new System.Drawing.Size(303, 26);
             this.tBoxName.TabIndex = 3;
             this.tBoxName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tBoxTel
             // 
             this.tBoxTel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tBoxTel.Location = new System.Drawing.Point(68, 134);
+            this.tBoxTel.Location = new System.Drawing.Point(92, 149);
             this.tBoxTel.Name = "tBoxTel";
             this.tBoxTel.Size = new System.Drawing.Size(195, 26);
             this.tBoxTel.TabIndex = 4;
@@ -89,17 +89,17 @@ namespace Agenda.Entities
             // tBoxObs
             // 
             this.tBoxObs.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tBoxObs.Location = new System.Drawing.Point(14, 215);
+            this.tBoxObs.Location = new System.Drawing.Point(11, 237);
             this.tBoxObs.Multiline = true;
             this.tBoxObs.Name = "tBoxObs";
-            this.tBoxObs.Size = new System.Drawing.Size(303, 81);
+            this.tBoxObs.Size = new System.Drawing.Size(367, 125);
             this.tBoxObs.TabIndex = 5;
             this.tBoxObs.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // bttnSave
             // 
             this.bttnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bttnSave.Location = new System.Drawing.Point(121, 312);
+            this.bttnSave.Location = new System.Drawing.Point(142, 372);
             this.bttnSave.Name = "bttnSave";
             this.bttnSave.Size = new System.Drawing.Size(105, 29);
             this.bttnSave.TabIndex = 7;
@@ -111,7 +111,7 @@ namespace Agenda.Entities
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(327, 350);
+            this.ClientSize = new System.Drawing.Size(391, 409);
             this.ControlBox = false;
             this.Controls.Add(this.bttnSave);
             this.Controls.Add(this.tBoxObs);
@@ -120,10 +120,12 @@ namespace Agenda.Entities
             this.Controls.Add(this.lblObs);
             this.Controls.Add(this.lblTel);
             this.Controls.Add(this.lblName);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "WindowEdit";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Editar Cliente";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -18,7 +18,7 @@ namespace Agenda
         {
         }
 
-        public Clients(string name): this()
+        public Clients(string name) : this()
         {
             Name = name;
         }
@@ -79,6 +79,37 @@ namespace Agenda
                 {
                     SelectClient(connextion, datagridview);
                 }
+                conn.Close();
+            }
+        }
+
+        public void FilterforTel(string connextion, long telefone, DataGridView datagridview)
+        {
+            Query = $@"SELECT * FROM public.clientes WHERE telefone = {telefone};";
+            NpgsqlConnection conn = new NpgsqlConnection(connextion);
+            NpgsqlCommand command = new NpgsqlCommand(Query, conn);
+            try
+            {
+                if (telefone.ToString().Length == 0)
+                {
+                    SelectClient(connextion, datagridview);
+                }
+                else
+                {
+                    conn.Open();
+                    command.ExecuteNonQuery();
+                    DataTable dt = new DataTable();
+                    NpgsqlDataAdapter ndta = new NpgsqlDataAdapter(command);
+                    ndta.Fill(dt);
+                    datagridview.DataSource = dt;
+                }
+            }
+            catch (NpgsqlException e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            finally
+            {
                 conn.Close();
             }
         }

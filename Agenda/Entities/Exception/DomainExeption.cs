@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Windows.Forms;
 
 namespace Agenda.Entities.Exeption
 {
@@ -7,7 +6,6 @@ namespace Agenda.Entities.Exeption
     {
         public DomainExeption(string message) : base(message)
         {
-            MessageBox.Show("An error occurred" + message);
         }
     }
 }

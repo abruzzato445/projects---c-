@@ -67,7 +67,7 @@ namespace Agenda.Entities
             }
             finally
             {
-                MessageBox.Show("Cliente alterado com sucesso!", "Info System", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Cliente alterado com sucesso! Clique em ATUALIZAR ", "Info System", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 conn.Close();
             }
         }
