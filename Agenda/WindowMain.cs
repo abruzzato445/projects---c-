@@ -10,15 +10,26 @@ namespace Agenda
         public wMain()
         {
             InitializeComponent();
+            tBoxFilterClient.Visible = false;
+            bttnRefresh.Visible = false;
         }
         //save
         private void button1_Click(object sender, EventArgs e)
         {
-            foreach (Clients client in ListClient.Items)
+            if (ListClient.Items.Count == 0)
             {
-                client.InsertNewClient(client.connextion);
+                DomainExeption domainExeption = new DomainExeption("Não foi possível salvar. Nenhum valor a ser salvo.");
+                MessageBox.Show(domainExeption.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            ListClient.Items.Clear();
+            else
+            {
+                foreach (Clients client in ListClient.Items)
+                {
+                    client.InsertNewClient(client.connextion);
+                    client.SelectClient(client.connextion, dgv_Clientes);
+                }
+                ListClient.Items.Clear();
+            }
         }
 
         private void bttn_Add_Click(object sender, EventArgs e)
@@ -67,38 +78,30 @@ namespace Agenda
             this.clientesTableAdapter.Fill(this.dbDataSet.clientes);
         }
 
-        private void tBoxFilterClient_KeyUp(object sender, KeyEventArgs e)
-        {
-            filterClient();
-        }
-
         private void filterClient()
         {
             Clients clients = new Clients();
-            if (cbxFilter.SelectedIndex == 0)
+            if(cbxFilter.SelectedIndex == 1)
             {
-                clients.FilterClient(clients.connextion, tBoxFilterClient.Text, dgv_Clientes);
+                clients.FilterforTel(clients.connextion, Convert.ToInt64(tBoxFilterClient.Text), dgv_Clientes);
             }
             else
             {
-                if (tBoxFilterClient.Text.Length == 0)
-                {
-                    clients.SelectClient(clients.connextion, dgv_Clientes);
-                }
-                else
-                {
-                    clients.FilterforTel(clients.connextion, Convert.ToInt64(tBoxFilterClient.Text), dgv_Clientes);
-                }
+                clients.FilterClient(clients.connextion, tBoxFilterClient.Text, dgv_Clientes);
             }
         }
 
         private void tBoxFilterClient_TextChanged(object sender, EventArgs e)
         {
-            filterClient();
-            bttnRefresh.Visible = false;
+            Clients clients = new Clients();
             if (tBoxFilterClient.Text == "")
             {
+                clients.SelectClient(clients.connextion, dgv_Clientes);
                 bttnRefresh.Visible = true;
+            }
+            else
+            {
+                filterClient();
             }
         }
 
@@ -136,6 +139,23 @@ namespace Agenda
             {
                 bttnEdit.Visible = false;
                 bttnDelet.Visible = false;
+            }
+        }
+
+        private void cbxFilter_SelectedValueChanged(object sender, EventArgs e)
+        {
+            tBoxFilterClient.Visible = true;
+            bttnRefresh.Visible = true;
+        }
+
+        private void tBoxFilterClient_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(cbxFilter.SelectedIndex == 1 && !char.IsDigit(e.KeyChar) && e.KeyChar != 08)
+            {
+                e.Handled = true;
+                DomainExeption TelExe = new DomainExeption("Não é possível filtrar por letras!");
+                MessageBox.Show(TelExe.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                tBoxFilterClient.Clear();
             }
         }
     }

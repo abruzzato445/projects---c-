@@ -287,6 +287,10 @@ namespace Agenda {
             
             private global::System.Data.DataColumn columnid;
             
+            private global::System.Data.DataColumn columnidade;
+            
+            private global::System.Data.DataColumn columndataregistro;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public clientesDataTable() {
@@ -354,6 +358,22 @@ namespace Agenda {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn idadeColumn {
+                get {
+                    return this.columnidade;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn dataregistroColumn {
+                get {
+                    return this.columndataregistro;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -389,13 +409,15 @@ namespace Agenda {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public clientesRow AddclientesRow(string nome, string observacao, long telefone) {
+            public clientesRow AddclientesRow(string nome, string observacao, long telefone, char idade, System.DateTime dataregistro) {
                 clientesRow rowclientesRow = ((clientesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         nome,
                         observacao,
                         telefone,
-                        null};
+                        null,
+                        idade,
+                        dataregistro};
                 rowclientesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowclientesRow);
                 return rowclientesRow;
@@ -422,6 +444,8 @@ namespace Agenda {
                 this.columnobservacao = base.Columns["observacao"];
                 this.columntelefone = base.Columns["telefone"];
                 this.columnid = base.Columns["id"];
+                this.columnidade = base.Columns["idade"];
+                this.columndataregistro = base.Columns["dataregistro"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -435,6 +459,10 @@ namespace Agenda {
                 base.Columns.Add(this.columntelefone);
                 this.columnid = new global::System.Data.DataColumn("id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid);
+                this.columnidade = new global::System.Data.DataColumn("idade", typeof(char), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnidade);
+                this.columndataregistro = new global::System.Data.DataColumn("dataregistro", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndataregistro);
                 this.columnnome.MaxLength = 20;
                 this.columnobservacao.MaxLength = 100;
                 this.columnid.AutoIncrement = true;
@@ -642,6 +670,38 @@ namespace Agenda {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public char idade {
+                get {
+                    try {
+                        return ((char)(this[this.tableclientes.idadeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'idade\' in table \'clientes\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableclientes.idadeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime dataregistro {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableclientes.dataregistroColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'dataregistro\' in table \'clientes\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableclientes.dataregistroColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsnomeNull() {
                 return this.IsNull(this.tableclientes.nomeColumn);
             }
@@ -674,6 +734,30 @@ namespace Agenda {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SettelefoneNull() {
                 this[this.tableclientes.telefoneColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsidadeNull() {
+                return this.IsNull(this.tableclientes.idadeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetidadeNull() {
+                this[this.tableclientes.idadeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsdataregistroNull() {
+                return this.IsNull(this.tableclientes.dataregistroColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetdataregistroNull() {
+                this[this.tableclientes.dataregistroColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -840,11 +924,14 @@ namespace Agenda.dbDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("observacao", "observacao");
             tableMapping.ColumnMappings.Add("telefone", "telefone");
             tableMapping.ColumnMappings.Add("id", "id");
+            tableMapping.ColumnMappings.Add("idade", "idade");
+            tableMapping.ColumnMappings.Add("dataregistro", "dataregistro");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.InsertCommand = new global::Npgsql.NpgsqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO \"main_db\".\"public\".\"clientes\" (\"nome\", \"observacao\", \"telefone\") VALU" +
-                "ES (@nome, @observacao, @telefone)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO \"main_db\".\"public\".\"clientes\" (\"nome\", \"observacao\", \"telefone\", \"dat" +
+                "aregistro\", \"idade\") VALUES (@nome, @observacao, @telefone, @dataregistro, @idad" +
+                "e)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             global::Npgsql.NpgsqlParameter param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "@nome";
@@ -867,6 +954,19 @@ namespace Agenda.dbDataSetTableAdapters {
             param.IsNullable = true;
             param.SourceColumn = "telefone";
             this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::Npgsql.NpgsqlParameter();
+            param.ParameterName = "@dataregistro";
+            param.DbType = global::System.Data.DbType.Date;
+            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Date;
+            param.IsNullable = true;
+            param.SourceColumn = "dataregistro";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::Npgsql.NpgsqlParameter();
+            param.ParameterName = "@idade";
+            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.InternalChar;
+            param.IsNullable = true;
+            param.SourceColumn = "idade";
+            this._adapter.InsertCommand.Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -882,7 +982,7 @@ namespace Agenda.dbDataSetTableAdapters {
             this._commandCollection = new global::Npgsql.NpgsqlCommand[1];
             this._commandCollection[0] = new global::Npgsql.NpgsqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT nome, observacao, telefone, id FROM clientes";
+            this._commandCollection[0].CommandText = "SELECT nome, observacao, telefone, id, dataregistro, idade FROM clientes";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -943,7 +1043,7 @@ namespace Agenda.dbDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string @nome, string @observacao, global::System.Nullable<long> @telefone) {
+        public virtual int Insert(string @nome, string @observacao, global::System.Nullable<long> @telefone, global::System.Nullable<global::System.DateTime> @dataregistro, object @idade) {
             if ((@nome == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -961,6 +1061,18 @@ namespace Agenda.dbDataSetTableAdapters {
             }
             else {
                 this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((@dataregistro.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((System.DateTime)(@dataregistro.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((@idade == null)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((object)(@idade));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 

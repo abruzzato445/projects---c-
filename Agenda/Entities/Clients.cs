@@ -1,6 +1,4 @@
-﻿using Agenda.Entities.Exeption;
-using System;
-using System.Data;
+﻿using System.Data;
 using System.Windows.Forms;
 using Npgsql;
 
@@ -9,6 +7,7 @@ namespace Agenda
     class Clients
     {
         private string Query;
+
         protected internal string connextion = @"Port=5433;Host=localhost;Database=main_db;Username=postgres;Password=Mbc74586";
         public string Name { get; private set; }
         public long Telefone { get; private set; }
@@ -57,7 +56,7 @@ namespace Agenda
 
         public void FilterClient(string connextion, string nameClient, DataGridView datagridview)
         {
-            Query = $@"SELECT * FROM public.clientes WHERE nome = '{nameClient}';";
+            Query = $@"SELECT * FROM public.clientes WHERE UPPER(nome) LIKE '%{nameClient.ToUpper()}%';";
             NpgsqlConnection conn = new NpgsqlConnection(connextion);
             NpgsqlCommand command = new NpgsqlCommand(Query, conn);
             try
