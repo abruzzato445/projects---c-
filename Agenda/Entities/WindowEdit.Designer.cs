@@ -111,8 +111,8 @@ namespace Agenda.Entities
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(391, 409);
-            this.ControlBox = false;
             this.Controls.Add(this.bttnSave);
             this.Controls.Add(this.tBoxObs);
             this.Controls.Add(this.tBoxTel);

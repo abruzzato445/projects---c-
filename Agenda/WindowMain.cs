@@ -36,27 +36,28 @@ namespace Agenda
         {
             try
             { 
-                if (txtbox_name.Text == "")
+                if (txtbox_name.Text == "" && cbxAge.SelectedValue == null)
                 {
-                    throw new DomainExeption(" Não foi inserido o nome do cliente. Essa coluna é obrigatória!");
+                    throw new DomainExeption(" Parece que você não preencheu alguma das colunas obrigatórias. " +
+                        "Por favor, preencha todos os campos com * ");
                 }
                 else if (txtbox_telefone.Text.Length == 0)
                 {
                     long telefone = 0;
-                    Clients client = new Clients(txtbox_name.Text, telefone, txtbox_observacao.Text);
+                    Clients client = new Clients(txtbox_name.Text, defineAge(cbxAge.SelectedIndex), dtpRegister.Value, telefone, txtbox_observacao.Text);
                     ListClient.Items.Add(client);
                     clearCamps();
                 }
                 else
                 {
-                    Clients client = new Clients(txtbox_name.Text, Convert.ToInt64(txtbox_telefone.Text), txtbox_observacao.Text);
+                    Clients client = new Clients(txtbox_name.Text, defineAge(cbxAge.SelectedIndex), dtpRegister.Value,Convert.ToInt64(txtbox_telefone.Text), txtbox_observacao.Text);
                     ListClient.Items.Add(client);
                     clearCamps();
                 }
             }
             catch(DomainExeption s)
             {
-                MessageBox.Show(s.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(s.Message, "Ops", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -65,6 +66,8 @@ namespace Agenda
             txtbox_name.Clear();
             txtbox_observacao.Clear();
             txtbox_telefone.Clear();
+            dtpRegister.Value = dtpRegister.Value.Date.ToLocalTime();
+            cbxAge.Items.Clear();
         }
         //remove List
         private void button2_Click(object sender, EventArgs e)
@@ -115,13 +118,15 @@ namespace Agenda
         {
             Clients clients = new Clients();
             clients.DeleteClient(clients.connextion, dgv_Clientes);
+            bttnEdit.Visible = false;
+            bttnDelet.Visible = false;
         }
 
         private void bttnEdit_Click(object sender, EventArgs e)
         {
             DataGridViewRow dgvr;
             dgvr = dgv_Clientes.CurrentRow;
-            int id = Convert.ToInt32(dgv_Clientes.Rows[dgvr.Index].Cells[0].Value);
+            int id = Convert.ToInt32(dgv_Clientes.Rows[dgvr.Index].Cells[5].Value);
             WindowEdit windowEdit = new WindowEdit();
             Clients clients = new Clients();
             windowEdit.SelectClient(clients.connextion, id);
@@ -147,7 +152,7 @@ namespace Agenda
             tBoxFilterClient.Visible = true;
             bttnRefresh.Visible = true;
         }
-
+        //Exception filter telefone
         private void tBoxFilterClient_KeyPress(object sender, KeyPressEventArgs e)
         {
             if(cbxFilter.SelectedIndex == 1 && !char.IsDigit(e.KeyChar) && e.KeyChar != 08)
@@ -157,6 +162,20 @@ namespace Agenda
                 MessageBox.Show(TelExe.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 tBoxFilterClient.Clear();
             }
+        }
+        
+        private char defineAge(int index)
+        {
+            char ageClient;
+            if(index == 0)
+            {
+                ageClient = 'A';
+            }
+            else
+            {
+                ageClient = 'C';
+            }
+            return ageClient;
         }
     }
 }

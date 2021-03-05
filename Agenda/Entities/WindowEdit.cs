@@ -1,6 +1,7 @@
 ﻿using System;
 using Npgsql;
 using System.Windows.Forms;
+using System.Data;
 
 namespace Agenda.Entities
 {
@@ -11,6 +12,8 @@ namespace Agenda.Entities
         public string Nome { get; set; }
         public long Telefone { get; set; }
         public string Observacao { get; set; }
+        public string Idade { get; set; }
+        public DateTime DataRegistro { get; set; }
 
         public WindowEdit()
         {
@@ -57,7 +60,7 @@ namespace Agenda.Entities
             {
                 conn.Open();
                 comm.ExecuteNonQuery();
-                System.Data.DataTable dt = new System.Data.DataTable();
+                DataTable dt = new DataTable();
                 NpgsqlDataAdapter ndta = new NpgsqlDataAdapter(comm);
                 ndta.Fill(dt);
             }
@@ -76,6 +79,7 @@ namespace Agenda.Entities
         {
             if (tBoxName.Text != Nome || tBoxTel.Text != Telefone.ToString() || tBoxObs.Text != Observacao)
             {
+                if(MessageBox.Show("Deseja manter as alterações feitas?", "Info", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 UpdateClient();
                 Close();
             }
