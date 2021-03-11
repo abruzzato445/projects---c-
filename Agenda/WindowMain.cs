@@ -67,12 +67,22 @@ namespace Agenda
             txtbox_observacao.Clear();
             txtbox_telefone.Clear();
             dtpRegister.Value = dtpRegister.Value.Date.ToLocalTime();
-            cbxAge.Items.Clear();
         }
         //remove List
         private void button2_Click(object sender, EventArgs e)
         {
-            ListClient.Items.Remove(ListClient.SelectedItem);
+            if (ListClient.Items.Count == 0)
+            {
+                MessageBox.Show("Não há clientes adicionados para remover!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else if (!ListClient.Items.IsReadOnly)
+            {
+                MessageBox.Show("Selecione o item a ser removido.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                ListClient.Items.Remove(ListClient.SelectedItem);
+            }
         }
 
         private void wMain_Load(object sender, EventArgs e)
@@ -152,10 +162,11 @@ namespace Agenda
             tBoxFilterClient.Visible = true;
             bttnRefresh.Visible = true;
         }
+        
         //Exception filter telefone
         private void tBoxFilterClient_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if(cbxFilter.SelectedIndex == 1 && !char.IsDigit(e.KeyChar) && e.KeyChar != 08)
+            if(cbxFilter.SelectedIndex == 1 && !char.IsDigit(e.KeyChar) && e.KeyChar != 08 && e.KeyChar != 22)
             {
                 e.Handled = true;
                 DomainExeption TelExe = new DomainExeption("Não é possível filtrar por letras!");
