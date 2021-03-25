@@ -8,7 +8,7 @@ namespace Agenda
     class Clients
     {
         private string Query;
-        protected internal string connextion = @"Port=5433;Host=localhost;Database=main_db;Username=postgres;Password=Mbc74586";
+        protected internal string connextion = @"Port=5433;Host=localhost;Database=main_db;Username=postgres;Persist Security Info=True;Password=Mbc74586";
         
         public string Name { get; private set; }
         public long Telefone { get; private set; }
@@ -120,7 +120,7 @@ namespace Agenda
 
         public void SelectClient(string connextion, DataGridView dataGridView)
         {
-            Query = @"SELECT * FROM public.clientes;";
+            Query = @"SELECT * FROM public.clientes ORDER BY nome;";
             NpgsqlConnection conn = new NpgsqlConnection(connextion);
             NpgsqlCommand command = new NpgsqlCommand(Query, conn);
             try

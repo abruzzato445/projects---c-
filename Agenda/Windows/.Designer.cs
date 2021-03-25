@@ -47,7 +47,14 @@
             this.titleTel = new System.Windows.Forms.Label();
             this.titleName = new System.Windows.Forms.Label();
             this.tabList = new System.Windows.Forms.TabPage();
+            this.bttnCheck = new System.Windows.Forms.Button();
             this.dgv_Clientes = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dbDataSet = new Agenda.dbDataSet();
             this.cbxFilter = new System.Windows.Forms.ComboBox();
@@ -58,12 +65,6 @@
             this.tBoxFilterClient = new System.Windows.Forms.TextBox();
             this.clientesTableAdapter = new Agenda.dbDataSetTableAdapters.clientesTableAdapter();
             this.tableAdapterManager = new Agenda.dbDataSetTableAdapters.TableAdapterManager();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabAgenda.SuspendLayout();
             this.tabCadastro.SuspendLayout();
             this.tabList.SuspendLayout();
@@ -86,13 +87,14 @@
             // 
             this.tabAgenda.Controls.Add(this.tabCadastro);
             this.tabAgenda.Controls.Add(this.tabList);
-            this.tabAgenda.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabAgenda.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabAgenda.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.tabAgenda.Location = new System.Drawing.Point(-6, 12);
+            this.tabAgenda.Location = new System.Drawing.Point(-3, 0);
+            this.tabAgenda.Multiline = true;
             this.tabAgenda.Name = "tabAgenda";
             this.tabAgenda.Padding = new System.Drawing.Point(10, 10);
             this.tabAgenda.SelectedIndex = 0;
-            this.tabAgenda.Size = new System.Drawing.Size(987, 565);
+            this.tabAgenda.Size = new System.Drawing.Size(987, 580);
             this.tabAgenda.TabIndex = 10;
             // 
             // tabCadastro
@@ -119,7 +121,7 @@
             this.tabCadastro.Location = new System.Drawing.Point(4, 41);
             this.tabCadastro.Name = "tabCadastro";
             this.tabCadastro.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCadastro.Size = new System.Drawing.Size(979, 520);
+            this.tabCadastro.Size = new System.Drawing.Size(979, 535);
             this.tabCadastro.TabIndex = 0;
             this.tabCadastro.Text = "Cadastro de Clientes";
             // 
@@ -234,7 +236,7 @@
             // 
             this.titleObs.AutoSize = true;
             this.titleObs.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titleObs.Location = new System.Drawing.Point(6, 171);
+            this.titleObs.Location = new System.Drawing.Point(19, 175);
             this.titleObs.Name = "titleObs";
             this.titleObs.Size = new System.Drawing.Size(113, 22);
             this.titleObs.TabIndex = 12;
@@ -265,6 +267,7 @@
             this.tabList.AutoScroll = true;
             this.tabList.BackColor = System.Drawing.Color.Gainsboro;
             this.tabList.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabList.Controls.Add(this.bttnCheck);
             this.tabList.Controls.Add(this.dgv_Clientes);
             this.tabList.Controls.Add(this.cbxFilter);
             this.tabList.Controls.Add(this.bttnEdit);
@@ -276,9 +279,19 @@
             this.tabList.Location = new System.Drawing.Point(4, 41);
             this.tabList.Name = "tabList";
             this.tabList.Padding = new System.Windows.Forms.Padding(3);
-            this.tabList.Size = new System.Drawing.Size(979, 520);
+            this.tabList.Size = new System.Drawing.Size(979, 535);
             this.tabList.TabIndex = 1;
             this.tabList.Text = "Lista de Clientes";
+            // 
+            // bttnCheck
+            // 
+            this.bttnCheck.Location = new System.Drawing.Point(874, 491);
+            this.bttnCheck.Name = "bttnCheck";
+            this.bttnCheck.Size = new System.Drawing.Size(87, 28);
+            this.bttnCheck.TabIndex = 7;
+            this.bttnCheck.Text = "Check";
+            this.bttnCheck.UseVisualStyleBackColor = true;
+            this.bttnCheck.Visible = false;
             // 
             // dgv_Clientes
             // 
@@ -300,6 +313,52 @@
             this.dgv_Clientes.Size = new System.Drawing.Size(951, 419);
             this.dgv_Clientes.TabIndex = 6;
             this.dgv_Clientes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Clientes_CellClick);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "nome";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Nome";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 200;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "telefone";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Contato";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "idade";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Idade";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "dataregistro";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Data Registro";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "observacao";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Observacao";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 400;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "id";
+            this.dataGridViewTextBoxColumn4.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 50;
             // 
             // clientesBindingSource
             // 
@@ -329,18 +388,18 @@
             // 
             // bttnEdit
             // 
-            this.bttnEdit.Location = new System.Drawing.Point(851, 482);
+            this.bttnEdit.Location = new System.Drawing.Point(770, 491);
             this.bttnEdit.Name = "bttnEdit";
             this.bttnEdit.Size = new System.Drawing.Size(87, 28);
             this.bttnEdit.TabIndex = 5;
-            this.bttnEdit.Text = "Vizualizar";
+            this.bttnEdit.Text = "Editar";
             this.bttnEdit.UseVisualStyleBackColor = true;
             this.bttnEdit.Visible = false;
             this.bttnEdit.Click += new System.EventHandler(this.bttnEdit_Click);
             // 
             // bttnDelet
             // 
-            this.bttnDelet.Location = new System.Drawing.Point(716, 482);
+            this.bttnDelet.Location = new System.Drawing.Point(667, 491);
             this.bttnDelet.Name = "bttnDelet";
             this.bttnDelet.Size = new System.Drawing.Size(87, 28);
             this.bttnDelet.TabIndex = 4;
@@ -389,60 +448,16 @@
             this.tableAdapterManager.clientesTableAdapter = this.clientesTableAdapter;
             this.tableAdapterManager.UpdateOrder = Agenda.dbDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "nome";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Nome";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 200;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "telefone";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Contato";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "idade";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Idade";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "dataregistro";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Data Registro";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            this.dataGridViewTextBoxColumn6.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "observacao";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Observacao";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 400;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "id";
-            this.dataGridViewTextBoxColumn4.HeaderText = "ID";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 50;
-            // 
             // wMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(982, 579);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ClientSize = new System.Drawing.Size(984, 580);
             this.Controls.Add(this.tabAgenda);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.Name = "wMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -496,6 +511,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.Button bttnCheck;
     }
 }
 

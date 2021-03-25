@@ -20,7 +20,7 @@ namespace Agenda.Entities
             InitializeComponent();
         }
 
-        public void SelectClient(string connextion, int idClient)
+        public void SelectClientID(string connextion, int idClient)
         {
 
             NpgsqlConnection conn = new NpgsqlConnection(connextion);

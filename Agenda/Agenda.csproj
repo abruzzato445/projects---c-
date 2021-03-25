@@ -23,7 +23,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>10</ApplicationRevision>
+    <ApplicationRevision>11</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -106,6 +106,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Windows\Atendimento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\Atendimento.Designer.cs">
+      <DependentUpon>Atendimento.cs</DependentUpon>
+    </Compile>
     <Compile Include="dbDataSet.cs">
       <DependentUpon>dbDataSet.xsd</DependentUpon>
     </Compile>
@@ -116,25 +122,37 @@
     </Compile>
     <Compile Include="Entities\Clients.cs" />
     <Compile Include="Entities\Exception\DomainExeption.cs" />
-    <Compile Include="Entities\WindowEdit.cs">
+    <Compile Include="Windows\WindowEdit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Entities\WindowEdit.Designer.cs">
+    <Compile Include="Windows\WindowEdit.Designer.cs">
       <DependentUpon>WindowEdit.cs</DependentUpon>
     </Compile>
-    <Compile Include="WindowMain.cs">
+    <Compile Include="Windows\Statistic.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include=".Designer.cs">
+    <Compile Include="Windows\Statistic.Designer.cs">
+      <DependentUpon>Statistic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\WindowMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\.Designer.cs">
       <DependentUpon>WindowMain.cs</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Entities\WindowEdit.resx">
+    <EmbeddedResource Include="Windows\Atendimento.resx">
+      <DependentUpon>Atendimento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\WindowEdit.resx">
       <DependentUpon>WindowEdit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WindowMain.resx">
+    <EmbeddedResource Include="Windows\Statistic.resx">
+      <DependentUpon>Statistic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\WindowMain.resx">
       <DependentUpon>WindowMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

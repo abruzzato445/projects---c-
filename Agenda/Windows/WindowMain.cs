@@ -122,6 +122,7 @@ namespace Agenda
         {
             Clients clients = new Clients();
             clients.SelectClient(clients.connextion, dgv_Clientes);
+            tBoxFilterClient.Clear();
         }
 
         private void bttnDelet_Click(object sender, EventArgs e)
@@ -139,7 +140,7 @@ namespace Agenda
             int id = Convert.ToInt32(dgv_Clientes.Rows[dgvr.Index].Cells[5].Value);
             WindowEdit windowEdit = new WindowEdit();
             Clients clients = new Clients();
-            windowEdit.SelectClient(clients.connextion, id);
+            windowEdit.SelectClientID(clients.connextion, id);
             windowEdit.Show();
         }
 
