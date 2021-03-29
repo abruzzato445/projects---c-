@@ -292,6 +292,7 @@
             this.bttnCheck.Text = "Check";
             this.bttnCheck.UseVisualStyleBackColor = true;
             this.bttnCheck.Visible = false;
+            this.bttnCheck.Click += new System.EventHandler(this.bttnCheck_Click);
             // 
             // dgv_Clientes
             // 

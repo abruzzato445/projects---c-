@@ -12,6 +12,7 @@ namespace Agenda
             InitializeComponent();
             tBoxFilterClient.Visible = false;
             bttnRefresh.Visible = false;
+            bttnCheck.Visible = false;
         }
         //save
         private void button1_Click(object sender, EventArgs e)
@@ -131,6 +132,7 @@ namespace Agenda
             clients.DeleteClient(clients.connextion, dgv_Clientes);
             bttnEdit.Visible = false;
             bttnDelet.Visible = false;
+            bttnCheck.Visible = false;
         }
 
         private void bttnEdit_Click(object sender, EventArgs e)
@@ -150,11 +152,13 @@ namespace Agenda
             {
                 bttnEdit.Visible = true;
                 bttnDelet.Visible = true;
+                bttnCheck.Visible = true;
             }
             else
             {
                 bttnEdit.Visible = false;
                 bttnDelet.Visible = false;
+                bttnCheck.Visible = false;
             }
         }
 
@@ -162,6 +166,7 @@ namespace Agenda
         {
             tBoxFilterClient.Visible = true;
             bttnRefresh.Visible = true;
+            bttnCheck.Visible = true;
         }
         
         //Exception filter telefone
@@ -188,6 +193,17 @@ namespace Agenda
                 ageClient = 'C';
             }
             return ageClient;
+        }
+
+        private void bttnCheck_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow dgvr;
+            dgvr = dgv_Clientes.CurrentRow;
+            int id = Convert.ToInt32(dgv_Clientes.Rows[dgvr.Index].Cells[5].Value);
+            Atendimento atendimento = new Atendimento();
+            Clients clients = new Clients();
+            atendimento.SelectClientID(clients.connextion, id);
+            atendimento.Show();
         }
     }
 }
